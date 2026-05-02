@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chat gptea result ☕</title>
+</head>
+
+<body style="background:black;color:white;text-align:center">
+
+<h1>☕ Your Creation</h1>
+
+<div id="result">Loading...</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code");
+
+if(!code){
+  document.getElementById("result").innerText = "No code provided.";
+}else{
+  fetch("/" + code)
+  .then(res => res.json())
+  .then(data => {
+    if(data.error){
+      document.getElementById("result").innerText = "❌ Code not found";
+      return;
+    }
+
+    document.getElementById("result").innerHTML =
+      `<img src="data:image/png;base64,${data.image}" width="400">`;
+  })
+  .catch(() => {
+    document.getElementById("result").innerText = "⚠️ Error loading image";
+  });
+}
+</script>
+
+</body>
+</html>
