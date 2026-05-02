@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chat gptea ☕</title>
+</head>
+
+<body style="background:black;color:white;text-align:center">
+
+<h1>☕ chat gptea</h1>
+
+<p>Enter your code from Roblox:</p>
+
+<input id="code" placeholder="CODE">
+<br><br>
+
+<button onclick="go()">Open</button>
+
+<script>
+function go(){
+  const code = document.getElementById("code").value;
+  if(!code) return;
+  window.location.href = "/view.html?code=" + code;
+}
+</script>
+
+</body>
+</html>
